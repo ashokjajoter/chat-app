@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <title>ChAT — Real-time Messaging</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <span>ChAT<span class="brand-dot">.</span></span>
+        </div>
+
+        <div class="workspace-label">WORKSPACE</div>
+
+        <div class="nav-item active">
+            <span class="nav-icon">◈</span>
+            <span>Messages</span>
+            <span class="nav-badge">LIVE</span>
+        </div>
+
+        <div class="nav-item">
+            <span class="nav-icon">◎</span>
+            <span>Community</span>
+        </div>
+
+        <div class="nav-item">
+            <span class="nav-icon">☆</span>
+            <span>Favorites</span>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="profile-card">
+                <div class="avatar profile-avatar" id="profileAvatar">G</div>
+                <div class="profile-info">
+                    <strong id="profileName">Guest User</strong>
+                    <span>Available to chat</span>
+                </div>
+                <button class="edit-profile" id="editName" title="Change username">✎</button>
+            </div>
+            <div class="sidebar-footer">MADE FOR CONNECTIONS ✦</div>
+        </div>
+    </aside>
+
+    <main class="chat-panel">
+
+        <header class="chat-header">
+            <div class="chat-heading">
+                <div class="mobile-brand">C</div>
+                <div>
+                    <h1>Global Chat</h1>
+                    <div class="header-status">
+                        <span class="status-dot"></span>
+                        <span id="onlineCount">Connecting...</span>
+                        <span class="status-separator">·</span>
+                        <span>Real-time messaging</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="live-pill">
+                    <span class="live-dot"></span>
+                    LIVE
+                </div>
+                <button class="icon-button" id="scrollBottom" title="Go to latest message">↓</button>
+            </div>
+        </header>
+
+        <section class="welcome-banner">
+            <div class="welcome-content">
+                <span class="eyebrow">✦ YOUR SPACE TO CONNECT</span>
+                <h2>Good conversations<br>start <span>right here.</span></h2>
+                <p>Share ideas, meet people, and make every message count.</p>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+                <div class="art-bubble bubble-one">✦</div>
+                <div class="art-bubble bubble-two">•••</div>
+                <div class="art-center">C</div>
+            </div>
+        </section>
+
+        <div class="messages-toolbar">
+            <span>CONVERSATION</span>
+            <span class="encrypted-label">● Connected session</span>
+        </div>
+
+        <section id="messages" class="messages" aria-live="polite">
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">✧</div>
+                <h3>Your conversation starts here</h3>
+                <p>Say hello and make the first move.</p>
+            </div>
+        </section>
+
+        <footer class="composer-area">
+            <div class="typing-hint" id="typingHint">Be kind. Great conversations begin with you.</div>
+
+            <form id="chatForm" class="composer">
+                <button type="button" class="composer-tool" id="emojiBtn" title="Insert a smile">☺</button>
+                <input
+                    type="text"
+                    id="message"
+                    placeholder="Write your message..."
+                    maxlength="2000"
+                    autocomplete="off"
+                    aria-label="Your message"
+                >
+                <span class="input-divider"></span>
+                <button type="submit" class="send-button">
+                    <span>Send message</span>
+                    <span class="send-icon">↗</span>
+                </button>
+            </form>
+
+            <div class="composer-footer">
+                <span>Press <kbd>Enter</kbd> to send</span>
+                <span>POWERED BY <strong>SOCKET.IO</strong></span>
+            </div>
+        </footer>
+
+    </main>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/script.js"></script>
+
+</body>
+</html>
